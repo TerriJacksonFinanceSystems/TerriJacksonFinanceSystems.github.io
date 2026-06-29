@@ -5,23 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI-enabled Finance Transformation Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: #e5e7eb;
-      line-height: 1.6;
+    body {  font-family: Arial, sans-serif;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(232, 121, 249, 0.16), transparent 34%),
+    radial-gradient(circle at top right, rgba(34, 211, 238, 0.10), transparent 30%),
+    linear-gradient(135deg, #020617, #0f172a 45%, #111827);
+  color: #e5e7eb;
+  line-height: 1.6;
     }
 
     header {
       padding: 72px 10%;
-      background: linear-gradient(135deg, #111827, #1e293b);
+  background:
+    linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(30, 41, 59, 0.78)),
+    radial-gradient(circle at 20% 20%, rgba(232, 121, 249, 0.22), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.22), transparent 32%);
+  border-bottom: 1px solid rgba(232, 121, 249, 0.22);
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      color: #ffffff;
+   font-size: 3rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+  letter-spacing: -0.04em;
     }
 
     h2 {
@@ -54,11 +61,12 @@
     }
 
     .card {
-      background: #111827;
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  background: rgba(15, 23, 42, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .card h3 {
@@ -66,14 +74,23 @@
       color: #ffffff;
     }
 
+    .card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 121, 249, 0.55);
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.45),
+    0 0 24px rgba(232, 121, 249, 0.18);
+}
     .tag {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #1e293b;
-      color: #93c5fd;
-      font-size: 0.85rem;
+   display: inline-block;
+  margin-top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(30, 41, 59, 0.92);
+  border: 1px solid rgba(232, 121, 249, 0.28);
+  color: #f0abfc;
+  font-size: 0.85rem;
+  box-shadow: 0 0 14px rgba(232, 121, 249, 0.12);
     }
 
     footer {
