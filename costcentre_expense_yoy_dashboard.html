@@ -392,6 +392,12 @@ td.num, th.num{text-align:right;font-variant-numeric:tabular-nums}
   justify-content:space-between;
   gap:16px;
 }
+.copyright-note{
+  margin-top:10px;
+  color:var(--blue);
+  font-size:12px;
+  text-shadow:var(--glow-blue);
+}
 @media (max-width:1180px){
   .toolbar{grid-template-columns:repeat(2, 1fr)}
   .kpis{grid-template-columns:repeat(2, 1fr)}
@@ -582,6 +588,7 @@ td.num, th.num{text-align:right;font-variant-numeric:tabular-nums}
     <span>Source: Cost Center January YoY Analysis.xlsx · embedded data · optional CSV refresh.</span>
     <span id="sourceNote">Workbook data is embedded. Upload a new monthly CSV to replace it for the next presentation.</span>
   </div>
+  <div class="copyright-note">Prototype, dashboard design and narrative framework © 2026 Terri Jackson. Synthetic data for portfolio demonstration purposes only.</div>
 </div>
 
 <script>
