@@ -75,6 +75,12 @@
       color: #ffffff;
     }
 
+    .card-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
     .card:hover {
   transform: translateY(-4px);
   border-color: rgba(232, 121, 249, 0.55);
@@ -97,7 +103,8 @@
 .link-text {
   margin-top: 18px;
   color: #e879f9;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 0.9rem
   text-shadow: 0 0 10px rgba(232, 121, 249, 0.35);
 }
 
@@ -175,7 +182,7 @@
   <div class="grid single-card-grid">
     <a class="card card-link" href="costcentre_expense_yoy_dashboard.html" target="_blank" rel="noopener">
       <h3>Cost centre expense YoY dashboard</h3>
-      <p>
+      <p class='card-description">
         Interactive FP&A dashboard prototype showing year-on-year cost centre expense analysis, variance trends and visual management reporting using fully synthetic data.
       </p>
 
@@ -185,7 +192,7 @@
         <span class="tag">Interactive HTML</span>
       </div>
 
-      <p class="link-text">View interactive dashboard →</p>
+      <p class="link-text">Click here to view interactive dashboard →</p>
     </a>
   </div>
 </section>
