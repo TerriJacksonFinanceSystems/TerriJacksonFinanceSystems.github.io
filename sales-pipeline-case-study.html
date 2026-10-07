@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beyond the weighted pipeline | Terri Jackson</title>
+  <meta name="description" content="An FP&A sales pipeline forecasting case study using Python, Monte Carlo scenarios, delivery risk and FX sensitivity.">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Terri Jackson · AI-enabled FP&amp;A Portfolio</p>
+    <p class="label">02. FP&amp;A SALES PIPELINE FORECAST · CASE STUDY</p>
+    <h1>Beyond the weighted pipeline</h1>
+    <p class="lead">Assessing quarterly forecast reliability, deal dependencies and the opportunities requiring management attention.</p>
+  </div>
+</header>
+<nav aria-label="Case study navigation">
+  <div class="wrap">
+    <a href="index.html">← Portfolio</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#method">Method</a>
+    <a href="#limitations">Limitations</a>
+    <a href="fuchsia_works_q4_2026_board_dashboard.html">Dashboard</a>
+    <a href="q4_2026_board_pipeline_dashboard.py" download>Download Python</a>
+  </div>
+</nav>
+<main>
+  <div class="wrap">
+    <section class="section">
+      <p>A probability weighted sales pipeline gives Finance a starting forecast. It can also conceal a heavy reliance on one deal, optimistic win probabilities or delivery dates that leave little room for delay.</p>
+      <p>I developed this project during the AI Finance Accelerator to explore those risks and give FP&amp;A a clearer basis for challenging the forecast. It combines a Python analysis workflow with an interactive Q4 2026 dashboard for Fuchsia Works, a demonstration digital consultancy.</p>
+      <a class="button" href="fuchsia_works_q4_2026_board_dashboard.html">Launch interactive dashboard →</a>
+      <a class="button" href="q4_2026_board_pipeline_dashboard.py" download>Download Python source →</a>
+      <div class="meta">
+        <div><b>Prototype status</b>Working prototype · October 2026</div>
+        <div><b>Finance use case</b>Q4 sales pipeline revenue forecasting and risk assessment</div>
+        <div><b>Intended users</b>FP&amp;A, sales leadership and CFO / finance leadership</div>
+        <div><b>Data</b>Supplied Salesforce-style course dataset, with a prepared Analysis worksheet and ECB FX lookup</div>
+        <div><b>Technology</b>Python, Google Colab, NumPy, pandas, openpyxl, Plotly and HTML / CSS / JavaScript</div>
+        <div><b>Outputs</b>Interactive dashboard, forecast scenarios, risk watchlists and downloadable calculation inputs</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2><span class="num">01</span>The business question</h2>
+      <div class="callout"><b>How dependable is the Q4 forecast, what could prevent delivery, and which opportunities need management attention first?</b></div>
+      <p>The dashboard brings forecast composition, probability assumptions, delivery timing and currency exposure into one view. It is designed to support discussions about the underlying opportunities and the actions needed to deliver revenue.</p>
+      <ul class="clean">
+        <li>How much of the forecast depends on the largest opportunities?</li>
+        <li>How do assigned win probabilities compare with supplied historical stage rates?</li>
+        <li>How much revenue could move out of Q4 if delivery slips?</li>
+        <li>Which owners and opportunities should be prioritised for review?</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2><span class="num">02</span>What I built</h2>
+      <p>The dashboard has seven sections: executive summary, forecast composition, forecast reliability, forecast risks, FX sensitivity, management action and assumptions.</p>
+      <ul class="clean">
+        <li>Gross, probability weighted and standard weighted forecasts, with Q4 delivery phasing.</li>
+        <li>Monte Carlo outcome distributions and cumulative monthly ranges, with selectable display intervals.</li>
+        <li>Concentration measures, a forecast risk waterfall and an interactive deal dependency wheel.</li>
+        <li>Currency sensitivity scenarios and opportunity watchlists with named owners.</li>
+        <li>Visible assumptions, calculation inputs, CSV exports and a print / PDF option.</li>
+      </ul>
+      <p>The HTML contains a prepared snapshot of the data and simulation results. Visitors can explore the output without uploading a workbook; changing the displayed interval does not rerun the Python model.</p>
+    </section>
+
+    <section class="section" id="workflow">
+      <h2><span class="num">03</span>The project workflow</h2>
+      <ol class="clean">
+        <li>Define the forecasting question, reporting requirements and presentation style.</li>
+        <li>Prepare and validate the Salesforce-style source data.</li>
+        <li>Apply the ECB FX lookup to report the pipeline in EUR.</li>
+        <li>Allocate revenue across delivery working days and calculate the weighted Q4 forecasts.</li>
+        <li>Model win outcomes and delivery slippage, then build the dashboard and risk watchlists.</li>
+        <li>Review the reconciliations, assumptions and outputs before management interpretation.</li>
+      </ol>
+      <p>The Python file published here covers dashboard generation from the prepared workbook. It documents the required Analysis columns and FX inputs. The source workbook and separate preparation scripts are not included in this first release.</p>
+      <p>To use the script in Google Colab, paste its contents into a code cell or upload the file and run <code>%run q4_2026_board_pipeline_dashboard.py</code>. A workbook matching the documented input structure is required.</p>
+    </section>
+
+    <section class="section" id="method">
+      <h2><span class="num">04</span>Forecast method and controls</h2>
+      <p>The model blends assigned win probabilities with supplied historical stage win rates. It simulates whether each opportunity is won and whether delivery slips, then recalculates the revenue retained within Q4. This produces a range of outcomes under the stated assumptions.</p>
+      <p>Source forecast measures and model expectations remain separately identifiable. The dashboard exposes opportunity inputs, reconciliation checks, FX rates and the rules behind its risk classifications.</p>
+      <div class="callout control"><b>The confidence score is a heuristic risk index. It is separate from the modelled probability of reaching the weighted forecast.</b></div>
+      <p>Sales owners still need to confirm commercial facts and delivery dates. FP&amp;A challenges the assumptions and reconciles the financial output; leadership decides the management response.</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="num">05</span>My contribution and AI support</h2>
+      <p>I defined the finance requirements, calculation logic, reporting structure and management questions. I used AI to support Python development, troubleshooting and dashboard iteration, reviewing the resulting outputs from an FP&amp;A and finance systems perspective.</p>
+      <p>The project demonstrates how I translate a finance process into repeatable analysis and an accessible management view. Publishing the Python source makes the calculation approach available for inspection.</p>
+    </section>
+
+    <section class="section" id="limitations">
+      <h2><span class="num">06</span>Assumptions and limitations</h2>
+      <ul class="clean">
+        <li>Deals are modelled independently, so shared customer, market or delivery shocks may be understated.</li>
+        <li>The supplied historical win rates have no supporting closed-deal sample or backtest attached.</li>
+        <li>The probability blend, delay scenario and risk thresholds are modelling choices.</li>
+        <li>Simulation ranges describe outcomes under those assumptions; they are not validated guarantees of forecast accuracy.</li>
+        <li>FX scenarios hold local revenue and win probabilities fixed and exclude hedging.</li>
+        <li>The dashboard is a static snapshot, with no live CRM connection, access controls or integrated action tracking.</li>
+      </ul>
+      <p>This is a portfolio demonstration and applied-learning project. Productivity benefits and improvements in forecast accuracy have not been measured in a production implementation.</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="num">07</span>Next development</h2>
+      <p>After the course, I plan to refine the prototype, test it against historical outcomes and explore correlated deal scenarios. Further work could include sensitivity testing of the probability blend and slippage assumptions, usability improvements and publication of the wider preparation workflow.</p>
+      <a class="button" href="fuchsia_works_q4_2026_board_dashboard.html">Explore the dashboard →</a>
+      <a class="button" href="index.html">Return to portfolio →</a>
+    </section>
+  </div>
+</main>
+<footer><div class="wrap">© 2026 Terri Jackson. Portfolio content, analysis and design concept all rights reserved.</div></footer>
+<script data-goatcounter="https://terrijackson.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
