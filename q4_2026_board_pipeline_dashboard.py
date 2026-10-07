@@ -1307,7 +1307,9 @@ $('board-risk-reset').addEventListener('click',()=>{
 });
 try{renderBoardRiskCards();renderBoardRiskWatchlist();renderBoardRiskDefinitions();renderBoardRiskPlots().catch(()=>{});}catch(error){boardRiskError(error);}
 
-</script></body></html>
+</script>
+<script data-goatcounter="https://terrijackson.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body></html>
 '''
 
 
