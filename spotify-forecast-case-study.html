@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forecasting Spotify's year-end audience | Terri Jackson</title>
+  <meta name="description" content="An independent FP&A forecasting case study using Spotify's public quarterly data, six forecasting approaches and an interactive December 2026 subscriber outlook.">
+  <link rel="stylesheet" href="case-study.css">
+  <style>
+    .assessment{border-left:4px solid #4ade80;padding:16px 20px;background:rgba(74,222,128,.06);border-radius:0 12px 12px 0;margin-top:28px}
+    .assessment p{margin:0 0 8px}.assessment summary{cursor:pointer;color:#a5f3fc;padding:8px 0}.assessment img{display:block;max-width:100%;height:auto;border-radius:8px;margin-top:12px}.assessment a{color:#a5f3fc}
+    .scope{color:#aebbd0;font-size:.92rem}section[id]{scroll-margin-top:80px}
+  </style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <p class="eyebrow">Terri Jackson · AI-enabled FP&amp;A Portfolio</p>
+  <p class="label">03. SUBSCRIBER FORECASTING · CASE STUDY</p>
+  <h1>Forecasting Spotify's year-end audience</h1>
+  <p class="lead">Using public reporting data to compare forecasting methods and assess a year-end subscriber outlook.</p>
+</div></header>
+<nav aria-label="Case study navigation"><div class="wrap">
+  <a href="index.html">← Portfolio</a><a href="#workflow">Workflow</a><a href="#evaluation">Evaluation</a><a href="#limitations">Limitations</a><a href="spotify-subscriber-forecast-dashboard.html">Dashboard</a>
+</div></nav>
+<main><div class="wrap">
+  <section class="section">
+    <p>How might Spotify's Premium subscriber base and Ad-supported audience land at the end of 2026? I built this prototype during the AI Finance Accelerator to explore that question using published quarterly observations and a consistent comparison of forecasting methods.</p>
+    <p>The dashboard connects data collection and preparation with historical testing, model explanations and a planning discussion. Visitors can compare the methods and choose separate forecasts for the two populations.</p>
+    <a class="button" href="spotify-subscriber-forecast-dashboard.html">Launch interactive dashboard →</a>
+    <p class="scope">Independent portfolio project using publicly available Spotify investor-relations data. No affiliation with or endorsement by Spotify.</p>
+    <div class="meta">
+      <div><b>Prototype status</b>Working prototype · October 2026</div>
+      <div><b>Finance use case</b>Subscriber planning baseline and assessment of forecast sensitivity</div>
+      <div><b>Data</b>Reported quarterly Premium subscribers and Ad-supported MAU, with explicitly labelled monthly estimates</div>
+      <div><b>Forecast horizon</b>July–December 2026, using saved model refits through June 2026</div>
+      <div><b>Technology</b>AI-assisted Python development, Google Colab and an interactive HTML dashboard</div>
+      <div><b>Outputs</b>Model comparisons, historical error measures, subscriber outlooks and downloadable CSV evidence</div>
+    </div>
+    <aside class="assessment" aria-label="Course assessment">
+      <p><strong>Course assessment: 5/5 · Strong Pass · Proficiency level</strong></p>
+      <p>AI Finance Accelerator, Week 5: Forecasting with Seasonality.</p>
+      <details><summary>View tutor's assessment record</summary><img src="assets/spotify-project-assessment.png" width="743" height="161" loading="lazy" alt="Marianne Neuper's Week 5 review for Terri Jackson. Project: Forecasting Spotify's Year-End Audience: An AI-Assisted FP&A Model Comparison. Submitted level: Proficiency. Result: PASS – Strong Pass. Score: 5/5."></details>
+    </aside>
+  </section>
+  <section class="section">
+    <h2><span class="num">01</span>The business question</h2>
+    <div class="callout"><b>What does the historical subscriber data suggest about the year-end landing, and how sensitive is that outlook to the forecasting method?</b></div>
+    <p>The aim is to give FP&amp;A a statistical starting point for discussing growth expectations. The comparison helps identify where forecasts agree, where they diverge and which assumptions need further investigation before a plan is agreed.</p>
+    <p>Premium subscribers and Ad-supported monthly active users are forecast separately. Their sum is a combined population measure for this case study; it is not Spotify's official total MAU.</p>
+  </section>
+  <section class="section">
+    <h2><span class="num">02</span>A lesson that changed the project</h2>
+    <p>I began with Black Hut Coffee, a fictional subscription business whose history I had created using AI and growth assumptions. Very accurate forecasts made me question whether the models were simply reproducing the invented growth path.</p>
+    <p>I moved to Spotify so I could challenge the approach against real reported observations. That decision made source quality, reporting definitions and the distinction between observations and estimates central to the project.</p>
+  </section>
+  <section class="section" id="workflow">
+    <h2><span class="num">03</span>What I built</h2>
+    <ol class="clean">
+      <li>Collect quarterly investor-relations reports into a consistent workbook, retaining source filenames in cell notes and checking later presentations of earlier quarters.</li>
+      <li>Examine quarterly net additions and each quarter's share of annual additions to investigate seasonality.</li>
+      <li>Create a monthly forecasting experiment by linearly interpolating between reported quarter-end subscriber counts, keeping the original observations identifiable.</li>
+      <li>Compare Seasonal Naive, ETS Holt Damped, ARIMA, SARIMA, Prophet and an ensemble on common chronological test windows.</li>
+      <li>Present accuracy, bias and the saved July–December outlook in an interactive dashboard, with CSV exports and a visible assumptions register.</li>
+    </ol>
+    <p>The ensemble uses equal weights across undamped Holt trend, seasonal Holt-Winters with a damped trend, and SARIMA. It does not average all six approaches.</p>
+  </section>
+  <section class="section" id="evaluation">
+    <h2><span class="num">04</span>How I evaluate the forecasts</h2>
+    <p>The most recent 15%, 20%, 25%, 30% or 35% of the monthly series is held back for historical testing. Each method faces the same dates. The dashboard shows monthly error measures alongside checks at reported quarter ends, including WAPE and forecast bias.</p>
+    <p>Changing the test window shows how the evaluation responds to the cut-off. The July–December 2026 outlook is a separate saved refit through June 2026; the slider does not refit that outlook.</p>
+    <div class="callout control"><b>Monthly interpolation does not create new observed data. At a split between quarters, a training estimate can depend on a reported value inside the test period. The current results therefore need a direct quarterly backtest before they support a firm model choice.</b></div>
+    <p>The suggested planning reference is provisional. Comparing performance across overlapping windows helps expose sensitivity, but those windows are not independent validation samples.</p>
+  </section>
+  <section class="section">
+    <h2><span class="num">05</span>My contribution and AI support</h2>
+    <p>I defined the finance question, challenged the synthetic starting dataset and specified the collection, preparation and reporting workflow. I used AI to help develop and troubleshoot Python scripts, then ran them in Google Colab and refined the outputs through repeated review.</p>
+    <p>I focused on the decisions behind the analysis: what the reported measures mean, how to handle quarterly frequency, how to compare forecasts fairly and what management can reasonably conclude from the results.</p>
+  </section>
+  <section class="section" id="limitations">
+    <h2><span class="num">06</span>Scope and next development</h2>
+    <ul class="clean">
+      <li>The dashboard contains saved results. It does not run Python, collect new reports or refit models in the browser.</li>
+      <li>The monthly estimates and overlapping holdouts limit the conclusions that can be drawn from apparent forecast accuracy.</li>
+      <li>The spread between model forecasts is not a probability interval. Selecting different methods for each population does not provide a separately validated combined forecast.</li>
+      <li>Pricing, acquisition campaigns and churn are not explicit forecast drivers. Forecasting two series separately does not make this a multivariable model.</li>
+      <li>Subscriber counts are point-in-time measures. A revenue forecast would require average subscriber exposure, Premium ARPU, advertising monetisation and FX assumptions.</li>
+    </ul>
+    <p>The next steps are to backtest directly on the quarterly observations, compare the saved outlook with newly published results and assess whether adding commercial drivers improves its usefulness for planning.</p>
+    <a class="button" href="spotify-subscriber-forecast-dashboard.html">Explore the dashboard →</a>
+    <a class="button" href="index.html">Return to portfolio →</a>
+  </section>
+</div></main>
+<footer><div class="wrap">© 2026 Terri Jackson. Independent educational portfolio project. Spotify names and logos belong to their respective owner.</div></footer>
+<script data-goatcounter="https://terrijackson.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
