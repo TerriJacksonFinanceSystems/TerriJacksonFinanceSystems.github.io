@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FP&amp;A management through conversation | Terri Jackson</title>
+<meta name="description" content="Fuchsia Works: a working FP&A prototype connecting a ChatGPT agent with Python forecasting, pipeline risk analysis and financial reporting.">
+<link rel="stylesheet" href="case-study.css">
+<style>.section a:not(.button){color:#a5f3fc}.example{border:1px solid var(--line);border-radius:12px;padding:16px 20px;background:var(--panel2);margin:14px 0}.example p{margin:0}.scope{color:var(--muted);font-size:.94rem}</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<p class="eyebrow">Terri Jackson · AI-enabled FP&amp;A Portfolio</p>
+<p class="label">05. AI-ENABLED FP&amp;A MANAGEMENT · CASE STUDY</p>
+<h1>FP&amp;A management through conversation</h1>
+<p class="lead">Connecting a ChatGPT strategic partner with Python forecasting and pipeline intelligence to support Finance and Sales decisions.</p>
+</div></header>
+<nav aria-label="Case study navigation"><div class="wrap"><a href="index.html">← Portfolio</a><a href="#workflow">Chat-led workflow</a><a href="#management">Management decisions</a><a href="#controls">Controls</a><a href="#scope">Scope</a><a href="#discuss">Discuss a similar project</a></div></nav>
+<main><div class="wrap">
+<section class="section">
+<p>A finance leader should be able to ask a question, investigate the evidence and explore a response without navigating several applications. I developed Fuchsia Works to explore how a conversational interface could make detailed FP&amp;A analysis accessible within a management discussion.</p>
+<p>The working prototype connects a private ChatGPT agent to Python Intelligence tools. The conversation provides an interface for requesting a reporting pack and investigating forecasts, opportunity movements, commercial risks and financial scenarios. Outputs include an interactive dashboard, a formula-driven Excel workbook and an audit file.</p>
+<p>This Week 6 capstone builds on <a href="sales-pipeline-case-study.html">case study 03, Beyond the weighted pipeline</a>, extending the analysis into a chat-led management workflow.</p>
+<div class="meta">
+<div><b>Prototype status</b>Working course prototype · October 2026</div>
+<div><b>Intended users</b>CFO, FP&amp;A and sales leadership</div>
+<div><b>Data</b>Synthetic Salesforce-style opportunity history for a demonstration digital consultancy</div>
+<div><b>Technology</b>ChatGPT agent, connected Python tools via MCP, forecasting models and interactive HTML</div>
+<div><b>Outputs</b>Dashboard, formula-driven Excel workbook and audit file</div>
+<div><b>Management purpose</b>Challenge forecast assumptions, identify exposures and prioritise investigation</div>
+</div>
+<aside class="assessment" aria-label="Course assessment"><p><strong>Course assessment: 7/7 · Strong Pass · Proficiency level</strong></p><p>AI Finance Accelerator, Week 6 capstone: Fuchsia Works | AI-Enabled FP&amp;A Forecasting &amp; Strategic Decision Support.</p><p>The coach's review recognised the working prototype's combination of Python, forecasting, financial reporting and a connected ChatGPT agent, with conversational access to analysis and human oversight.</p></aside>
+</section>
+<section class="section" id="workflow">
+<h2><span class="num">01</span>Managing the workflow through chat</h2>
+<p>The user can request analysis and discuss the results through the connected LLM environment. There is no need to manually transfer files between applications, sign into the CRM separately or open Excel to initiate the workflow. The workbook remains an output available for detailed review.</p>
+<ol class="clean"><li>Request a reporting pack and specify the source snapshot, reporting horizon, currency and FX basis.</li><li>Review and confirm the reporting assumptions before generation.</li><li>Use the agent's connected Python tools to prepare the analysis and reporting outputs.</li><li>Ask follow-up questions, investigate risks and explore scenarios.</li><li>Review the supporting evidence and agree management actions with the relevant owners.</li></ol>
+<p>The intended experience is accessible from a phone, tablet or laptop with internet access to the configured LLM account. The supporting Python service, data and permissions must also be available. In the prototype, the MCP connection needs to be running.</p>
+<p class="scope">The project uses a prepared Salesforce-style snapshot. It does not demonstrate a live Salesforce integration.</p>
+</section>
+<section class="section" id="management">
+<h2><span class="num">02</span>A tool for management decisions</h2>
+<p>The reporting pack provides a starting point for investigation. Finance and Sales can challenge the outlook, examine the opportunities behind it and decide what requires follow-up.</p>
+<div class="example"><p><strong>Forecast confidence</strong><br>How do salesperson probabilities compare with stage benchmarks and historical conversion evidence? Which assumptions should Finance challenge?</p></div>
+<div class="example"><p><strong>Sales risk and ownership</strong><br>Which high-value opportunities have stale updates, backward stage movements or concentrated exposure? Who owns the follow-up?</p></div>
+<div class="example"><p><strong>Delivery and liquidity scenarios</strong><br>What would a delay in the largest opportunities mean for forecast delivery? How would extending assumed payment terms affect estimated receipts and receivables?</p></div>
+<p>Data checks and risk rules help surface issues for review. The agent supports investigation and proposed next steps; commercial facts, decisions and accountability remain with people.</p>
+</section>
+<section class="section">
+<h2><span class="num">03</span>The analytical foundation</h2>
+<ul class="clean">
+<li>Gross, stage-weighted, sales-weighted and history-weighted forecasts, with delivery phasing.</li>
+<li>Monte Carlo distributions and outcome ranges under stated probability assumptions.</li>
+<li>Deal movements, sales owner concentration, opportunity watchlists and management priorities.</li>
+<li>Regional and industry composition, currency exposure and FX sensitivity.</li>
+<li>Modelled pipeline cash receipts and a receivables bridge using assumed payment terms.</li>
+<li>Historical measurement windows for reviewing retrospective closed-deal conversion evidence.</li>
+<li>Exploratory XGBoost models for future new-opportunity counts and gross pipeline creation value, with historical out-of-sample comparisons.</li>
+</ul>
+<p>BlueSky's predicted pipeline creation value is separate from won business and recognised revenue. Historical conversion rates and Monte Carlo ranges also have distinct meanings and limitations, which the dashboard explains.</p>
+</section>
+<section class="section" id="controls">
+<h2><span class="num">04</span>Financial controls and human judgement</h2>
+<p>The design includes reporting context, reconciliation views, an FX audit, visible assumptions and a dictionary of calculations. Prepared agent questions carry the dashboard's reporting context, helping the user specify what should be investigated.</p>
+<p>Opening the agent does not automatically attach the dashboard, workbook or current filters. The data snapshot and reporting basis need to be verified before its answers are relied on.</p>
+<div class="callout control"><b>A reconciliation can pass while the reporting basis is wrong. Validation must also check that the generated output follows the approved snapshot, period and FX assumptions.</b></div>
+<p>Before a reporting pack is relied on, the approved reporting basis needs to be checked against the underlying outputs. Technical reconciliations and review of the management interpretation are separate parts of that process.</p>
+</section>
+<section class="section">
+<h2><span class="num">05</span>My contribution and AI support</h2>
+<p>I defined the finance questions, analytical requirements, reporting structure and management use cases. I used AI to support Python development, troubleshooting and iteration, and developed the connected agent workflow to make the analysis accessible through conversation.</p>
+<p>My focus was the relationship between the numbers and the management process: which assumptions need challenge, what evidence supports a conclusion, who should investigate an issue and how the results can be reviewed.</p>
+</section>
+<section class="section" id="scope">
+<h2><span class="num">06</span>Current scope and next development</h2>
+<ul class="clean">
+<li>This is an applied-learning prototype using synthetic data. Production productivity benefits and forecast improvements have not been measured.</li>
+<li>The public case study describes the connected workflow. The private agent and its backend are not hosted on this portfolio site.</li>
+<li>The dashboard is a saved analytical output; it does not run the connected Python workflow in the browser.</li>
+<li>Monte Carlo outcomes depend on the modelling assumptions. Retrospective stage conversion evidence is not an out-of-sample probability backtest.</li>
+<li>Cash receipts are a pipeline-derived proxy, excluding existing ledger receivables, actual billing schedules, tax and credit losses.</li>
+</ul>
+<h3>Proactive forecast monitoring</h3>
+<p>A planned extension is to compare successive forecast snapshots and flag movements above an agreed percentage or value threshold, with supporting drivers and suggested investigation. Unprompted alerts require scheduled checks, saved baselines and a notification route. Background monitoring is not claimed as a demonstrated capability of the current prototype.</p>
+<p class="scope">The capstone dashboard download is being held back while the reporting basis is checked. The earlier pipeline dashboard remains available through <a href="sales-pipeline-case-study.html">case study 03</a>.</p>
+</section>
+<section class="section" id="discuss"><a class="button" href="https://www.linkedin.com/in/terrijackson/" target="_blank" rel="noopener noreferrer">Discuss a similar project</a><br><a class="button" href="index.html">Return to portfolio →</a></section>
+</div></main>
+<footer><div class="wrap">© 2026 Terri Jackson. Portfolio prototype using synthetic demonstration data.</div></footer>
+<script data-goatcounter="https://terrijackson.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body></html>
